@@ -1,0 +1,684 @@
+/* ================ Set up confiqs ==================== */
+
+:root {
+  --first-font-color: white;
+  --second-font-color: #343434;
+  --third-font-color: #748182;
+  --forth-font-color: #1c1c1c;
+
+  --theme-bg-first-color: #ffffff;
+  --theme-bg-second-color: #f7f7f7;
+
+  --nav-status: absolute;
+}
+:root:has(.nav-link.active[href$="section"]) .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  --bs-navbar-padding-y: 1rem;
+  background-color: var(--theme-bg-first-color);
+  --bs-navbar-color: var(--forth-font-color);
+  --bs-navbar-hover-color: var(--forth-font-color);
+  --bs-navbar-disabled-color: var(--forth-font-color);
+  --bs-navbar-active-color: var(--forth-font-color);
+  --bs-navbar-brand-color: var(--forth-font-color);
+  --bs-navbar-brand-hover-color: var(--forth-font-color);
+  box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.342);
+  border-radius: 0% 5% 40% 10%;
+
+  z-index: 999;
+
+  .nav-link {
+    &::before {
+      border-bottom: 3px solid var(--forth-font-color);
+    }
+  }
+  i {
+    color: var(--forth-font-color);
+  }
+}
+
+#nav-hidden {
+  display: none;
+}
+#nav-visible {
+  display: inline-block;
+}
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("../webfonts/Poppins/Poppins-Bold.woff2") format("woff2"),
+    url("../webfonts/Poppins/Poppins-Bold.woff") format("woff"),
+    url("../webfonts/Poppins/Poppins-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("../webfonts/Poppins/Poppins-Regular.woff2") format("woff2"),
+    url("../webfonts/Poppins/Poppins-Regular.woff") format("woff"),
+    url("../webfonts/Poppins/Poppins-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("../webfonts/Montserrat/Montserrat-ExtraBold.woff2") format("woff2"),
+    url("../webfonts/Montserrat/Montserrat-ExtraBold.woff") format("woff"),
+    url("../webfonts/Montserrat/Montserrat-ExtraBold.ttf") format("ttf");
+}
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url("../webfonts/Montserrat/Montserrat-Regular.woff2") format("woff2"),
+    url("../webfonts/Montserrat/Montserrat-Regular.woff") format("woff"),
+    url("../webfonts/Montserrat/Montserrat-Regular.ttf") format("ttf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-family: "Montserrat-Bold";
+  margin: 0%;
+  padding: 0%;
+}
+
+p,
+a {
+  color: var(--third-font-color);
+  font-family: "Poppins-Regular";
+}
+
+.header {
+  /* background-color: #1c1c1c; */
+  position: relative;
+
+  h2 {
+    /* background-color: #991313; */
+    display: inline-block;
+    position: relative;
+    font-weight: 900;
+    font-family: "Montserrat-Bold";
+    z-index: 88;
+    overflow: hidden;
+  }
+  display: inline-block;
+  & > div {
+    width: auto;
+    &::before {
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translatex(-50%);
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      background-position: center center;
+      background-image: url("../images/dots.png");
+      z-index: 1;
+    }
+  }
+}
+
+/* ================ Navbar ==================== */
+nav[id="#data-nav"] {
+  position: absolute;
+  .navbar-collapse {
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 50% 5% 50% 5%;
+  }
+  .navbar-toggler {
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .navbar .container > a {
+    font-family: "Montserrat-Bold";
+  }
+
+  .navbar ul a {
+    position: relative;
+    overflow: hidden;
+    font-weight: 100;
+    font-size: 0.9rem;
+  }
+
+  .nav-item {
+    margin-right: 1rem;
+  }
+
+  .nav-pills {
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: transparent;
+  }
+}
+.nav-link {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+    background-color: transparent;
+    transition: all 0.5s;
+    width: 10%;
+    height: 80%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-bottom: 3px solid black;
+  }
+}
+.nav-link.active {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: 1;
+    width: 30%;
+  }
+}
+
+.navbar {
+  --bs-navbar-color: var(--forth-font-color);
+  --bs-navbar-hover-color: var(--forth-font-color);
+  --bs-navbar-disabled-color: var(--first-font-color);
+  --bs-navbar-active-color: var(--forth-font-color);
+  --bs-navbar-brand-color: var(--first-font-color);
+  --bs-navbar-brand-hover-color: var(--first-font-color);
+  --bs-navbar-padding-y: 2rem;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  transition: all 0.5s;
+  i {
+    color: var(--first-font-color);
+  }
+}
+
+/* ================ Header section ==================== */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.377)),
+    url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position-y: top;
+  background-size: cover;
+  color: var(--first-font-color);
+  font-weight: 700;
+ 
+  h2,
+  .h2 {
+    font-size: 2rem;
+    font-weight: 100;
+    font-family: "Montserrat-Regular";
+  }
+  h1 {
+    font-size: 3.25rem;
+    font-family: "Montserrat-Bold";
+    font-weight: 900;
+  }
+
+  i {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.49);
+    display: flex;
+    align-content: center;
+    border-radius: 50%;
+  }
+}
+/* ================ about ==================== */
+
+#about_section {
+  background-color: var(--main-bg-color);
+  .job-des{
+    letter-spacing: .3rem;
+  }
+  .my-photo {
+    /* background-color: #1c1c1c; */
+    position: relative;
+    &::before {
+      content: "";
+      top: 20%;
+      left: 0;
+      width: 70%;
+      height: 80%;
+      position: absolute;
+      background-color: transparent;
+      background-image: url("../images/dots.png");
+    }
+  }
+  .info {
+    p {
+      font-weight: 100;
+      color: #9d9d9dc5;
+    }
+  }
+  .first-button {
+    --bs-btn-bg: var(--forth-font-color);
+    --bs-btn-color: var(--first-font-color);
+    --bs-btn-border-color: var(--first-font-color);
+    --bs-btn-hover-color: var(--forth-font-color);
+    --bs-btn-hover-bg: var(--first-font-color);
+    --bs-btn-hover-border-color: var(--forth-font-color);
+  }
+  .second-button {
+    --bs-btn-bg: var(--first-font-color);
+    --bs-btn-color: var(--forth-font-color);
+    --bs-btn-border-color: var(--forth-font-color);
+    --bs-btn-hover-color: var(--first-font-color);
+    --bs-btn-hover-bg: var(--forth-font-color);
+    --bs-btn-hover-border-color: var(--forth-font-color);
+  }
+
+  .progress {
+    height: 1.5rem;
+    background-color: var(--theme-bg-second-color);
+    box-shadow: inset 1px 1px 5px rgba(128, 128, 128, 0.421);
+    --bs-progress-bar-bg: var(--forth-font-color);
+  }
+}
+
+/* ================ Services ==================== */
+
+#services_section {
+  background-color: var(--theme-bg-second-color);
+
+  .card {
+    &:hover .icon {
+      border-color: var(--first-font-color);
+      background-color: var(--second-font-color);
+    }
+    &:hover i {
+      color: white;
+      transform: rotate(360deg);
+    }
+  }
+  .card {
+    &:hover .icon {
+      background-color: var(--second-font-color);
+      border-color: var(--theme-first-color);
+      color: var(--theme-first-color);
+    }
+    &:hover i {
+      color: var(--theme-bg-second-color);
+    }
+  }
+}
+
+.icon {
+  background-color: var(--theme-bg-second-color);
+  margin: auto;
+  padding: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 100%;
+  box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.097);
+  transition: all 0.3s;
+  text-align: center;
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2.5rem;
+  }
+}
+
+/* ================ Portfolio ==================== */
+#works_section {
+  .nav-link {
+    font-family: "Poppins-Bold";
+    font-weight: 900;
+    color: var(--third-font-color);
+    &::before {
+      border-bottom-right-radius: 0%;
+      border-bottom: 3px solid black;
+    }
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 1;
+        background-color: transparent;
+        transition: all 0.5s;
+        width: 60%;
+        height: 100%;
+        border-bottom-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        border-bottom: 3px solid var(--third-font-color);
+      }
+    }
+  }
+  .nav-link.active {
+    color: var(--forth-font-color);
+
+    &::before {
+      width: 70%;
+    }
+  }
+
+  .cutom-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2%;
+    border: dotted 1px ;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.251);
+    &:hover .data {
+      opacity: 1;
+      top: 3%;
+      bottom: 3%;
+      h3 {
+        margin-top: 0rem;
+      }
+    }
+    &:hover .icons {
+      margin-top: 0.2rem;
+      transform: rotate(360deg);
+    }
+
+    h3 {
+      margin-top: -2rem;
+      font-family: "Montserrat-Regular";
+      font-weight: 600;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .icon {
+    background-color: var(--forth-font-color);
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 0rem;
+    & > i {
+      color: var(--first-font-color);
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: var(--first-font-color);
+      border: solid black 1px;
+
+      & > i {
+        color: var(--forth-font-color);
+      }
+    }
+  }
+  .icons {
+    margin-top: 4rem;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.data {
+  position: absolute;
+  background-color: var(--first-font-color);
+  opacity: 0;
+  left: 3%;
+  right: 3%;
+  top: 10%;
+  bottom: -10%;
+  transition: all 0.4s ease-in-out;
+  box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.097);
+}
+
+/* ================ Clients ==================== */
+#clients_section {
+  background-color: var(--theme-bg-second-color);
+  .carousel-caption {
+    position: static;
+    h3 {
+      color: var(--second-font-color);
+      font-family: "Montserrat-Regular";
+      font-weight: 900;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: 100;
+    }
+    .custom-p {
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+  }
+  img {
+    width: 6rem;
+  }
+  .carousel-indicators [data-bs-target] {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    background-color: #869791;
+  }
+}
+
+/* ================ counters ==================== */
+.counters {
+  p {
+    color: var(--third-font-color);
+    font-weight: 900;
+  }
+  .card {
+    &:hover .icon {
+      background-color: var(--second-font-color);
+      border-color: var(--theme-first-color);
+      color: var(--theme-first-color);
+    }
+    &:hover i {
+      color: var(--theme-bg-second-color);
+    }
+  }
+  .icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--theme-bg-second-color);
+
+    i {
+      width: 2rem;
+      height: 2rem;
+      font-size: 2rem;
+      color: var(--second-font-color);
+    }
+    border-color: var(--theme-second-color);
+  }
+}
+
+/* ================ Team ==================== */
+#team_section {
+  background-color: var(--theme-bg-second-color);
+  .cutom-h3 {
+    font-family: "Montserrat-Regular";
+    font-weight: 900;
+  }
+
+  .icon {
+    background-color: var(--forth-font-color);
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 0rem;
+    & > i {
+      color: var(--first-font-color);
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: var(--first-font-color);
+      border: solid black 1px;
+
+      & > i {
+        color: var(--forth-font-color);
+      }
+    }
+  }
+  .icons {
+    margin-top: 0rem;
+    transition: all 0.4s ease-in-out;
+  }
+  .team-photo {
+    position: relative;
+    overflow: hidden;
+    img {
+      transition: all 0.5s ease-in-out;
+    }
+    .data {
+      position: absolute;
+      background-color: var(--first-font-color);
+      opacity: 0;
+      left: 3%;
+      right: 3%;
+      top: 3%;
+      bottom: 3%;
+      transform: scale(0.5) rotateY(360deg);
+      transition: all 0.5s ease-in-out;
+      box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.379);
+    }
+    &:hover {
+      .data {
+        opacity: 1;
+        transform: scale(1);
+      }
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .card-body {
+    background-color: #5b5b5b;
+    &:hover ~ .team-photo {
+      .data {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+/* ================ Contact ==================== */
+
+#contact_section {
+  .card {
+    padding-inline: 0;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  .card {
+    &:hover .icon {
+      background-color: var(--second-font-color);
+      border-color: var(--theme-first-color);
+      color: var(--theme-first-color);
+    }
+    &:hover i {
+      color: var(--theme-bg-second-color);
+    }
+  }
+  form {
+    .sub-button {
+      --bs-btn-bg: var(--forth-font-color);
+      --bs-btn-color: var(--first-font-color);
+      --bs-btn-border-color: var(--first-font-color);
+      --bs-btn-hover-color: var(--forth-font-color);
+      --bs-btn-hover-bg: var(--first-font-color);
+      --bs-btn-hover-border-color: var(--forth-font-color);
+    }
+    .form-control {
+      background-color: var(--theme-bg-second-color);
+      box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.097);
+
+      &:focus {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+/* ================ footer ==================== */
+
+footer {
+  background-color: var(--forth-font-color);
+  box-shadow: inset 0px 2px 15px 1px rgba(0, 0, 0, 0.258);
+  p {
+    font-size: 0.9rem;
+    color: #6d797a;
+  }
+}
+/* ================ Media ==================== */
+
+/* sm	640px	 */
+@media (min-width: 576px) {
+}
+/* md	768px	 */
+@media (min-width: 768px) {
+  header {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+}
+/* lg	1024px	 */
+@media (min-width: 992px) {
+  nav[id="#data-nav"] {
+    --bs-navbar-color: var(--first-font-color);
+    --bs-navbar-hover-color: var(--first-font-color);
+    --bs-navbar-disabled-color: var(--first-font-color);
+    --bs-navbar-active-color: var(--first-font-color);
+    position: absolute;
+    .navbar-collapse {
+      padding: 0.5rem;
+      text-align: center;
+      background-color: transparent;
+    }
+    .nav-link {
+      position: relative;
+
+      &::before {
+        left: 0%;
+        transform: translatex(0%);
+        transition: all 0.5s;
+      }
+    }
+    .nav-link.active {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 10%;
+        opacity: 1;
+        width: 60%;
+        border-bottom-right-radius: 0%;
+        border-color: white;
+      }
+    }
+  }
+}
+
+/* xl	1280px	 */
+@media (min-width: 1200px) {
+}
+/* xxl	1536px	 */
+@media (min-width: 1400px) {
+}
